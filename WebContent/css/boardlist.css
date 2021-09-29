@@ -1,0 +1,82 @@
+@charset "UTF-8";
+*{
+	list-style:none;
+	text-decoration:none;
+	color:#000;
+}
+h3{
+	text-align:center;
+	padding:50px 0;
+	font-size:25px;
+}
+hr{
+	margin-bottom:50px;
+}
+ul{
+	padding-left:0;
+}
+ul.row{
+	display:flex;
+	list-style:none;
+	justify-content:space-between;
+	padding-inline-start:0px; /*목록 들여쓰기 없애기*/
+	border-bottom:1px solid #e5e5e5;
+}
+ul.thul{
+	border-top:1px solid #ffb5a8;
+	border-bottom:1px solid #ffb5a8;
+}
+li.rowli:last-child ul{
+	border-bottom:1px solid #ffb5a8;
+}
+.row > li:nth-child(1){
+	flex-basis:10%;
+}	
+.row > li:nth-child(2){
+	flex-basis:35%;
+}
+.row > li:nth-child(3){
+	flex-basis:25%;
+}
+.row > li:nth-child(4){
+	flex-basis:10%;
+}
+.row > li:nth-child(5){
+	flex-basis:20%;
+}
+
+.row li {
+	padding : 5px  10px;
+	margin : 5px 0px;
+	width:10vw;
+	text-align:center;
+}
+li.rowli{
+	width:100%;
+}
+li.th{
+	background:tomato;
+	color:#fff !important;
+}
+li.th li{
+	color:#fff;
+}
+li.contents li{
+	font-size:14px;
+}
+.button-con{
+	margin:0 auto 50px;
+}
+.button{
+	display:inline-block;
+	padding:10px 20px;
+	background:tomato;
+	color:#fff;
+	border-radius:3px;
+	font-size:14px;
+}
+.count{
+	float:right;
+	margin-top:7px;
+	font-size:14px;
+}
