@@ -49,13 +49,13 @@
 			</li>
 		</ul>
 	<div style="text-align: center;margin-bottom: 10px;">
-		<a class="button" href="updateAction.jsp?idx=${bean.idx}">수정</a>
+		<a class="button" href="updateAction.jsp?idx=${bean.idx}&page=${page}">수정</a>
 		<a class="button" onclick="deleteSet()">삭제</a>
-		<a class="button" href="listAction.jsp">목록</a>
+		<a class="button" href="listAction.jsp?page=${page}">목록</a>
 	</div>
 	<!-- 메인글 출력 끝 -->
 	<!-- 댓글 시작 -->
-	<form action="commentAction.jsp" method="post" name="frmCmt">
+	<form action="commentAction.jsp?page=${page }" method="post" name="frmCmt">
 	<input type="hidden" name="mref" value="${bean.idx}">
 		<hr class="line">
 		<div>
@@ -94,7 +94,7 @@
 					<li>${cmt.ip }</li>
 					<li>${cmt.wdate }</li>
 					<!-- 댓글삭제 : 글 비밀번호 확인X, 댓글idx, 메인글idx -->
-					<li><a href="javascript:deleteCmt('${cmt.idx}','${bean.idx}')">삭제</a></li>
+					<li><a href="javascript:deleteCmt('${cmt.idx}','${bean.idx}','${page }')">삭제</a></li>
 				</ul>
 			</li>
 			<li>
@@ -117,6 +117,7 @@
 				<form action="deleteAction.jsp" method="post" name="frmPassword"
 						onsubmit="return deleteOk()">
 					<input type="hidden" name="idx" value="${bean.idx }"> <!--삭제할 글번호-->
+					<input type="hidden" name="page" value="${page}">
 					<input
 						type="password" name="password" size="10">
 					<input type="submit" value="확인" style="padding: 5px 20px;">
@@ -153,11 +154,11 @@
 	function deleteSet(){
 		document.getElementById('myModal').style.display='block';		
 	}
-	function deleteCmt(cmtidx,idx){
+	function deleteCmt(cmtidx,idx,page){
 		console.log(cmtidx);console.log(idx);
 		const yn = confirm('댓글 삭제하시겠습니까?');
 		if(yn){
-			location.href="commentAction.jsp?del=&cmtidx="+cmtidx+"&idx="+idx;
+			location.href="commentAction.jsp?del=&cmtidx="+cmtidx+"&idx="+idx+"&page="+page;
 		}else {
 			alert('댓글 삭제 취소합니다.');
 		}

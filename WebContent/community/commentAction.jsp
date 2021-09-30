@@ -6,6 +6,7 @@
 	int mref;
 	CommentDao dao = CommentDao.getInstance();
 	request.setCharacterEncoding("UTF-8");	//getParameter 앞에 나와야 합니다.
+	int pageNo = Integer.parseInt(request.getParameter("page"));
 	if(request.getParameter("del") != null){	//삭제
 		int cmtidx = Integer.parseInt(request.getParameter("cmtidx"));
 		int idx = Integer.parseInt(request.getParameter("idx"));
@@ -23,5 +24,5 @@
 //	dao.updateCommentCnt(mref);	//mref 값이 글상세보기의 idx였습니다.
 	}
 	dao.updateCountAll(mref);
-	response.sendRedirect("detailAction.jsp?page=1&idx="+mref);
+	response.sendRedirect("detailAction.jsp?page="+pageNo+"&idx="+ mref);
 %>
